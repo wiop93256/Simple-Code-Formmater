@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Format the code block where the cursor is.",
-	"author": "wiop12369",
+	"author": "SY",
 	"authorUrl": "https://github.com/wiop93256",
 	"fundingUrl": "https://github.com/wiop93256/Simple-Code-Formmater",
 	"isDesktopOnly": false
