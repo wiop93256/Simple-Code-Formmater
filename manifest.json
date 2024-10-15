@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "Simple Code Formatter",
+	"name": "Simple Code Formatter",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Let's format the code block where the cursor is!",
+	"author": "wiop12369",
+	"authorUrl": "https://github.com/wiop93256",
+	"fundingUrl": "https://github.com/wiop93256/Simple-Code-Formmater",
 	"isDesktopOnly": false
 }
