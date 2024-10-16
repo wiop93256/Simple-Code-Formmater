@@ -19,7 +19,7 @@ Format the block of code where the cursor is located
 | ---------- | -------------------- |
 | C          | js-beautify          |
 | csharp     | js-beautify          |
-| java       | js-beautify          |
+| java       | prettier             |
 | xml        | xml-formatter        |
 | sql        | sqlformatter         |
 | html       | prettier             |
@@ -40,7 +40,7 @@ Format the block of code where the cursor is located
 
 Make sure the Markdown syntax of the code block you want to format is correct.
 
-## Code syntax  in a code block
+## Code syntax in a code block
 
 The plugin will check your code syntax which use `prettier` of `Formatter(JS Module)`.
 
