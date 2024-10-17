@@ -35,6 +35,7 @@ const prettierLanguages = [
   "html",
   "vue",
   "css",
+  "js",
   "javascript",
   "typescript",
   "json",
