@@ -13,7 +13,7 @@ import * as esTreeParser from "prettier/plugins/estree";
 export default async function web_formatter(code, codeType) {
   // Map code type aliases for prettier
   const language = mapCodeTypeAliases(codeType);
-  console.log("language",language);
+  // console.log("language",language);
   // Format code using prettier
   return prettier.format(code, {
     parser: language,
