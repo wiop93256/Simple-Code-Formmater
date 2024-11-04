@@ -99,10 +99,10 @@ async function formatCodeBlock(editor: Editor, range: any) {
 
   // 备份代码块
   // Backup the code block
-  const backUp = editor.getRange(
-    { line: start, ch: 0 },
-    { line: end, ch: editor.getLine(end).length }
-  );
+  // const backUp = editor.getRange(
+  //   { line: start, ch: 0 },
+  //   { line: end, ch: editor.getLine(end).length }
+  // );
   const firstLine = editor.getLine(start);
   const endLine = editor.getLine(end);
 
