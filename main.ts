@@ -7,16 +7,16 @@ export default class SimpleCodeFormatterPlugin extends Plugin {
     // Format the code block where the cursor is
     this.addCommand({
       id: "simple_code_formatter",
-      name: "Let's format the code block where the cursor is!",
+      name: "Format current code block.",
       editorCallback: async (editor: Editor, view: MarkdownView) => {
         const codeBlockRange = await getCodeBlockRange(editor);
         if (!codeBlockRange) {
-          new Notice("😦No code block found!");
+          new Notice("No code block found!");
           return;
         }
         formatCodeBlock(editor, codeBlockRange)
           .then(() => {
-            new Notice("🎉Code block formatted!");
+            new Notice("Code block formatted!");
           })
           .catch((e: any) => {
             // IF the error is a custom error, show the message in the notice
@@ -27,7 +27,7 @@ export default class SimpleCodeFormatterPlugin extends Plugin {
             // Otherwise, show a generic error message and log the error to the console
             else {
               new Notice(
-                "😂Failed to format code block! Maybe the code block contains syntax errors.\nSee the console for more information."
+                "Failed to format code block! Maybe the code block contains syntax errors.\nSee the console for more information."
               );
               console.log("Simple Code Formatter Error:", e);
             }
@@ -44,7 +44,7 @@ export default class SimpleCodeFormatterPlugin extends Plugin {
 async function getCodeBlockRange(editor: Editor) {
   const cursor = editor.getCursor();
   const cursorLine = cursor.line;
-  console.log("当前光标行", cursorLine);
+  // console.log("当前光标行", cursorLine);
   const doc = editor.getValue();
 
   const lineCount = editor.lineCount();
@@ -103,7 +103,6 @@ async function formatCodeBlock(editor: Editor, range: any) {
     { line: start, ch: 0 },
     { line: end, ch: editor.getLine(end).length }
   );
-  console.log(backUp);
   const firstLine = editor.getLine(start);
   const endLine = editor.getLine(end);
 
