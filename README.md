@@ -17,7 +17,7 @@ Format the block of code where the cursor is located
 
 | Language   | Formatter(JS Module) |
 | ---------- | -------------------- |
-| C          | js-beautify          |
+| C(C++)     | js-beautify          |
 | csharp     | js-beautify          |
 | java       | prettier             |
 | xml        | xml-formatter        |

@@ -1,5 +1,6 @@
 import { Editor, MarkdownView, Notice, Plugin } from "obsidian";
 import code_formatter from "./formatter/code-formatter.mjs";
+import CustomError from "./public/CustomError.mjs";
 
 export default class SimpleCodeFormatterPlugin extends Plugin {
   async onload() {
@@ -106,7 +107,11 @@ async function formatCodeBlock(editor: Editor, range: any) {
   const firstLine = editor.getLine(start);
   const endLine = editor.getLine(end);
 
-  const language = editor.getLine(start).trim().slice(3); // 获取代码块的语言标记
+  const languageMatch = editor.getLine(start).trim().match(/^\S+/);
+  if (!languageMatch) {
+    throw new CustomError("No language specified in the code block.");
+  }
+  const language = languageMatch[0].slice(3);
 
   const codeBlockContent = editor.getRange(
     { line: start + 1, ch: 0 },

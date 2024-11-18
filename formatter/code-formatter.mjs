@@ -5,6 +5,8 @@ import xml_formatter from "./XML/xml-formatter.mjs";
 import sql_formatter from "./SQL/sql-formatter.mjs";
 import web_formatter, { prettierLanguages } from "./Web/web-code-formatter.mjs";
 
+import CustomError from "../public/CustomError.mjs";
+
 export default async function formatCode(code, language) {
   language = language.toLowerCase();
 
@@ -15,6 +17,7 @@ export default async function formatCode(code, language) {
   // Formatter code based on language
   switch (language) {
     case "c":
+    case "c++":
     case "cpp":
       return c_formatter(code);
     case "csharp":
@@ -27,13 +30,9 @@ export default async function formatCode(code, language) {
     case "sql":
       return sql_formatter(code);
     default:
-      throw new CustomError("Language not supported for formatting.");
-  }
-}
-
-class CustomError extends Error {
-  constructor(message) {
-      super(message);
-      this.name = "CustomError"; // 设置自定义的错误名称
+      // 返回获取到的语言
+      throw new CustomError(
+        `Language '${language}' not supported for formatting.`
+      );
   }
 }
