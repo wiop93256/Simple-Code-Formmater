@@ -22,5 +22,30 @@ let options = {
 };
 // 格式化代码
 export default function formatCode(code) {
-  return js_beautify(code, options);
+  let formattedCode = js_beautify(code, options);
+  // 额外的格式化处理
+  formattedCode = extraFormat(formattedCode);
+  return formattedCode;
+}
+
+/**
+ * 额外的格式化处理
+ */
+function extraFormat(code) {
+  // 针对泛型<>语法的优化
+  let mycode = genericityOptimize(code);
+  return mycode;
+}
+
+/**
+ * 针对泛型<>语法的优化
+ * @param {*} code 
+ * @returns 
+ */
+function genericityOptimize(code) {
+  // 去除<>两边的空格
+  let code1 = code.replace(/\s*(<|>)\s*/g, "$1");
+  // 确保变量名之间有空格
+  let code2 = code1.replace(/(>\s*)([a-zA-Z_]\w*)/g, "$1 $2");
+  return code2;
 }
