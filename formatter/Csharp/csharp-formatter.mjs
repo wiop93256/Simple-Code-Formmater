@@ -43,9 +43,24 @@ function extraFormat(code) {
  * @returns 
  */
 function genericityOptimize(code) {
-  // 去除<>两边的空格
+  // 1. 匹配代码中的注释（包括单行和多行注释），并保留其原始内容
+  let comments = [];
+  code = code.replace(/(\/\/[^\n]*|\/\*[\s\S]*?\*\/)/g, (match) => {
+      comments.push(match);
+      return `/*comment${comments.length - 1}*/`;  // 临时替换为占位符
+  });
+
+  // 2. 去除 <> 之间的空格，只处理代码部分
   let code1 = code.replace(/\s*(<|>)\s*/g, "$1");
-  // 确保变量名之间有空格
+
+  // 3. 恢复注释中的原始内容
+  code1 = code1.replace(/\/\*comment(\d+)\*\//g, (match, index) => {
+      return comments[index];
+  });
+
+  // 4. 确保变量名之间有空格（这是原始的优化操作）
   let code2 = code1.replace(/(>\s*)([a-zA-Z_]\w*)/g, "$1 $2");
+
   return code2;
 }
+
