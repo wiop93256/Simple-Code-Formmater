@@ -50,6 +50,6 @@ The plugin will check your code syntax which use `prettier` of `Formatter(JS Mod
 
 ## 3. If your code doesn't conform to syntax, but you still want to beautify it?
 
-You should bypass the syntax check. You can use a language powered by `js-beautiby` instead of the current language.
+You should bypass the syntax check. You can use a language powered by `js-beautify` instead of the current language.
 
 After formatting, change it back.
